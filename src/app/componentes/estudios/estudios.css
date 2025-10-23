@@ -1,0 +1,115 @@
+/* Contenedor principal */
+.contenido-estudios {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 40px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Encabezado */
+.encabezado {
+    text-align: center;
+    margin-bottom: 50px;
+    padding-bottom: 30px;
+    border-bottom: 3px solid #f0f0f0;
+}
+
+.encabezado h1 {
+    font-size: 2.8rem;
+    color: #1a1a1a;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.encabezado .descripcion {
+    font-size: 1.15rem;
+    color: #666;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Sección de tabla */
+.seccion-tabla {
+    margin-top: 30px;
+}
+
+.seccion-tabla h2 {
+    font-size: 1.8rem;
+    color: #222;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+/* Container de tabla con scroll horizontal en pantallas pequeñas */
+.tabla-container {
+    overflow-x: auto;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Estilos de tabla */
+.tabla-herramientas {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    font-size: 0.95rem;
+}
+
+.tabla-herramientas thead {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: #fff;
+}
+
+.tabla-herramientas th {
+    padding: 18px 20px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    border: none;
+}
+
+.tabla-herramientas tbody tr {
+    border-bottom: 1px solid #e8e8e8;
+    transition: background-color 0.2s;
+}
+
+.tabla-herramientas tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.tabla-herramientas tbody tr:last-child {
+    border-bottom: none;
+}
+
+.tabla-herramientas td {
+    padding: 16px 20px;
+    color: #444;
+    border: none;
+}
+
+.tabla-herramientas td:first-child {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.tabla-herramientas td:nth-child(2) {
+    color: #555;
+}
+
+.tabla-herramientas td:nth-child(3) {
+    color: #777;
+    font-size: 0.9rem;
+}
+
+/* Alternancia de filas */
+.tabla-herramientas tbody tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+.tabla-herramientas tbody tr:nth-child(even):hover {
+    background-color: #f0f0f0;
+}

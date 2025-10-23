@@ -1,0 +1,100 @@
+/* Contenedor principal */
+.contenido {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 40px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Sección de introducción */
+.intro h1 {
+    font-size: 2.5rem;
+    color: #222;
+    margin-bottom: 20px;
+}
+
+.descripcion-principal {
+    font-size: 1.15rem;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 35px;
+}
+
+/* Sección de detalles */
+.seccion-detalles {
+    margin-bottom: 35px;
+    padding-bottom: 25px;
+    border-bottom: 2px solid #eee;
+}
+
+.seccion-detalles h2 {
+    font-size: 1.6rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.seccion-detalles p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+/* Cualidades */
+.cualidades {
+    margin-bottom: 40px;
+}
+
+.cualidades h3 {
+    font-size: 1.4rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.cualidades ul {
+    list-style: none;
+    padding: 0;
+}
+
+.cualidades li {
+    padding: 10px 0;
+    padding-left: 25px;
+    color: #555;
+    font-size: 1rem;
+    position: relative;
+}
+
+.cualidades li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #000;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Botones principales */
+.botones-principales {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.btn-principal {
+    background-color: #000;
+    color: white;
+    text-decoration: none;
+    padding: 14px 35px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn-principal:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+}

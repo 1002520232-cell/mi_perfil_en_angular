@@ -1,0 +1,31 @@
+<main class="contenido-estudios">
+    <div class="encabezado">
+        <h1>Ingeniería de Sistemas</h1>
+        <p class="descripcion">
+            Estudio Ingeniería de Sistemas y me apasiona la tecnología, la programación y la innovación digital.
+        </p>
+    </div>
+
+    <section class="seccion-tabla">
+        <h2>Aplicaciones útiles para Ingenieros de Sistemas</h2>
+        
+        <div class="tabla-container">
+            <table class="tabla-herramientas">
+                <thead>
+                    <tr>
+                        <th>Aplicación</th>
+                        <th>Uso Principal</th>
+                        <th>Plataforma</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let aplicacion of aplicaciones">
+                        <td> {{ aplicacion.titulo }} </td>
+                        <td> {{ aplicacion.descripcion}} </td>
+                        <td> {{ aplicacion.aplicaciones }} </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</main>

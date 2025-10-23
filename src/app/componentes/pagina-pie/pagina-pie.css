@@ -1,0 +1,58 @@
+
+.footer {
+    background-color: #f5f5f5;
+    text-align: center;
+    padding: 30px 20px;
+    border-top: 2px solid #000;
+}
+
+.footer p {
+    margin: 10px 0;
+    color: #333;
+    font-size: 16px;
+}
+
+.footer-redes {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 15px 0;
+    flex-wrap: wrap;
+}
+
+.btn-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;  /* ancho mínimo */
+    max-width: 160px;  /* ancho máximo */
+    padding: 10px 0;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: transform 0.2s, filter 0.2s;
+    text-align: center;
+    white-space: nowrap;
+}
+
+
+/* Colores oficiales de cada red */
+.btn-footer.facebook {
+    background-color: #1877f2;
+}
+
+.btn-footer.instagram {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+.btn-footer.tiktok {
+    background-color: #010101;
+}
+
+/* Hover */
+.btn-footer:hover {
+    transform: translateY(-3px);
+    filter: brightness(0.85);
+}
