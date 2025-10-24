@@ -1,0 +1,117 @@
+/* Estilos para la galería de proyectos: tamaños y recorte de imágenes */
+.galeria-proyectos {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  align-items: start;
+}
+
+.tarjeta-proyecto {
+  display: flex;
+  gap: 1rem;
+  padding: 0.75rem;
+  align-items: center;
+}
+
+.tarjeta-proyecto .proyecto-imagen {
+  width: 100%;
+  max-width: 240px; /* anchura máxima del bloque imagen */
+  aspect-ratio: 1 / 1; /* fuerza forma cuadrada */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f8f8;
+  border-radius: 6px;
+}
+
+.tarjeta-proyecto .proyecto-imagen img {
+  width: 100%;
+  height: 100%; /* llena el contenedor cuadrado */
+  display: block;
+  object-fit: cover; /* recorta sin deformar */
+  transition: transform .25s ease;
+}
+
+.tarjeta-proyecto.destacado .proyecto-imagen {
+  max-width: 420px;
+  aspect-ratio: 1 / 1;
+}
+
+.tarjeta-proyecto .proyecto-imagen img.crop {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tarjeta-proyecto .proyecto-imagen img:hover {
+  transform: scale(1.03);
+}
+
+@media (max-width: 800px) {
+  .tarjeta-proyecto .proyecto-imagen {
+    max-width: 180px;
+  }
+  .tarjeta-proyecto.destacado .proyecto-imagen {
+    max-width: 320px;
+  }
+  .tarjeta-proyecto {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+/* Contenedor: centra y limita el ancho de las tarjetas */
+.galeria-proyectos {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+/* Imagen dentro de cada tarjeta: tamaño máximo y recorte elegante */
+.tarjeta-proyecto .proyecto-imagen {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f8f8; /* opcional: fondo neutro si la imagen no cubre */
+}
+
+/* Tamaño general de las imágenes (miniaturas/responsivas) */
+.tarjeta-proyecto .proyecto-imagen img {
+  width: 100%;          /* ocupa el ancho del contenedor */
+  max-width: 240px;     /* límite de anchura para reducir tamaño */
+  height: auto;         /* mantiene proporción */
+  display: block;
+  object-fit: cover;    /* recorta si hace falta manteniendo el encuadre */
+  border-radius: 6px;   /* opcional: bordes suaves */
+  transition: transform .25s ease;
+}
+
+/* Versión grande (tarjeta destacada): imagen más grande */
+.tarjeta-proyecto.destacado .proyecto-imagen.grande img,
+.tarjeta-proyecto.destacado .proyecto-imagen img {
+  max-width: 420px;     /* tamaño mayor para la tarjeta destacada */
+}
+
+/* Si quieres fijar altura y recortar (útil para galerías uniformes) */
+.tarjeta-proyecto .proyecto-imagen img.crop {
+  width: 100%;
+  height: 180px;        /* altura fija */
+  object-fit: cover;    /* recorta para llenar el área */
+}
+
+/* Pequeña interacción al pasar el ratón */
+.tarjeta-proyecto .proyecto-imagen img:hover {
+  transform: scale(1.03);
+}
+
+/* Media queries: ajustar en pantallas pequeñas */
+@media (max-width: 600px) {
+  .tarjeta-proyecto .proyecto-imagen img {
+    max-width: 180px;
+  }
+  .tarjeta-proyecto.destacado .proyecto-imagen.grande img {
+    max-width: 320px;
+  }
+}
