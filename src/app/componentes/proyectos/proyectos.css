@@ -1,117 +1,148 @@
-/* Estilos para la galería de proyectos: tamaños y recorte de imágenes */
+/* Contenedor principal de proyectos */
+.contenido-proyectos {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.encabezado {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.encabezado h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.encabezado .descripcion {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+/* Galería de proyectos */
 .galeria-proyectos {
   display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  align-items: start;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
+/* Tarjeta individual */
 .tarjeta-proyecto {
   display: flex;
-  gap: 1rem;
-  padding: 0.75rem;
-  align-items: center;
-}
-
-.tarjeta-proyecto .proyecto-imagen {
-  width: 100%;
-  max-width: 240px; /* anchura máxima del bloque imagen */
-  aspect-ratio: 1 / 1; /* fuerza forma cuadrada */
+  flex-direction: column;
+  background: #fff;
+  border-radius: 8px;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #f8f8f8;
-  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.tarjeta-proyecto .proyecto-imagen img {
+.tarjeta-proyecto:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Contenedor de imagen */
+.proyecto-imagen {
   width: 100%;
-  height: 100%; /* llena el contenedor cuadrado */
-  display: block;
-  object-fit: cover; /* recorta sin deformar */
-  transition: transform .25s ease;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #f0f0f0;
 }
 
-.tarjeta-proyecto.destacado .proyecto-imagen {
-  max-width: 420px;
-  aspect-ratio: 1 / 1;
-}
-
-.tarjeta-proyecto .proyecto-imagen img.crop {
+.proyecto-imagen img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
-.tarjeta-proyecto .proyecto-imagen img:hover {
-  transform: scale(1.03);
+.proyecto-imagen img:hover {
+  transform: scale(1.05);
 }
 
-@media (max-width: 800px) {
-  .tarjeta-proyecto .proyecto-imagen {
-    max-width: 180px;
+/* Contenido de la tarjeta */
+.proyecto-contenido {
+  padding: 1.5rem;
+}
+
+.proyecto-contenido h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+  color: #333;
+}
+
+.descripcion-proyecto {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.detalles ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.detalles li {
+  padding: 0.5rem 0;
+  color: #666;
+  border-top: 1px solid #eee;
+}
+
+.detalles li:first-child {
+  border-top: none;
+}
+
+/* Tarjeta destacada - ocupa más espacio */
+.tarjeta-proyecto.destacado {
+  grid-column: span 2;
+}
+
+.tarjeta-proyecto.destacado .proyecto-imagen {
+  aspect-ratio: 21 / 9;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .tarjeta-proyecto.destacado {
+    grid-column: span 1;
   }
+  
   .tarjeta-proyecto.destacado .proyecto-imagen {
-    max-width: 320px;
-  }
-  .tarjeta-proyecto {
-    flex-direction: column;
-    align-items: stretch;
+    aspect-ratio: 16 / 9;
   }
 }
-/* Contenedor: centra y limita el ancho de las tarjetas */
-.galeria-proyectos {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-}
 
-/* Imagen dentro de cada tarjeta: tamaño máximo y recorte elegante */
-.tarjeta-proyecto .proyecto-imagen {
-  width: 100%;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #f8f8f8; /* opcional: fondo neutro si la imagen no cubre */
-}
-
-/* Tamaño general de las imágenes (miniaturas/responsivas) */
-.tarjeta-proyecto .proyecto-imagen img {
-  width: 100%;          /* ocupa el ancho del contenedor */
-  max-width: 240px;     /* límite de anchura para reducir tamaño */
-  height: auto;         /* mantiene proporción */
-  display: block;
-  object-fit: cover;    /* recorta si hace falta manteniendo el encuadre */
-  border-radius: 6px;   /* opcional: bordes suaves */
-  transition: transform .25s ease;
-}
-
-/* Versión grande (tarjeta destacada): imagen más grande */
-.tarjeta-proyecto.destacado .proyecto-imagen.grande img,
-.tarjeta-proyecto.destacado .proyecto-imagen img {
-  max-width: 420px;     /* tamaño mayor para la tarjeta destacada */
-}
-
-/* Si quieres fijar altura y recortar (útil para galerías uniformes) */
-.tarjeta-proyecto .proyecto-imagen img.crop {
-  width: 100%;
-  height: 180px;        /* altura fija */
-  object-fit: cover;    /* recorta para llenar el área */
-}
-
-/* Pequeña interacción al pasar el ratón */
-.tarjeta-proyecto .proyecto-imagen img:hover {
-  transform: scale(1.03);
-}
-
-/* Media queries: ajustar en pantallas pequeñas */
 @media (max-width: 600px) {
-  .tarjeta-proyecto .proyecto-imagen img {
-    max-width: 180px;
+  .galeria-proyectos {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
-  .tarjeta-proyecto.destacado .proyecto-imagen.grande img {
-    max-width: 320px;
+  
+  .encabezado h1 {
+    font-size: 1.5rem;
   }
+  
+  .proyecto-contenido {
+    padding: 1rem;
+  }
+}
+
+/* Estilo cuando la tarjeta está seleccionada */
+.tarjeta-proyecto.seleccionado {
+  border: 3px solid #ff4444;
+  background-color: #fff5f5;
+}
+
+/* Cursor pointer para indicar que es clickeable */
+.tarjeta-proyecto {
+  cursor: pointer;
+  border: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.tarjeta-proyecto.seleccionado:hover {
+  border-color: #ff0000;
 }
