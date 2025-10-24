@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-hobbies',
   imports: [],
   templateUrl: './hobbies.html',
-  styleUrl: './hobbies.css',
+  styleUrl: './hobbies.css'
 })
 export class Hobbies {
 
