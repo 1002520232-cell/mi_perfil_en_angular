@@ -1,15 +1,26 @@
-import { CommonModule } from '@angular/common';
+
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { Observable } from 'rxjs';
+import { PerfilService } from '../../servicios/perfil.service';
+import { Project } from '../../modelos/perfil';
 
 @Component({
   selector: 'app-proyectos',
-  imports: [CommonModule, FormsModule],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './proyectos.html',
-  styleUrl: './proyectos.css'
+  styleUrls: ['./proyectos.css']
 })
 export class Proyectos {
-  proyecto1Seleccionado = false;
-  proyecto2Seleccionado = false;
-  proyecto3Seleccionado = false;
+  proyectos$: Observable<Project[]>;
+  selectedIndex: number | null = null;
+
+  constructor(private perfilService: PerfilService) {
+    this.proyectos$ = this.perfilService.getProyectos();
+  }
+
+  toggle(index: number) {
+    this.selectedIndex = this.selectedIndex === index ? null : index;
+  }
 }

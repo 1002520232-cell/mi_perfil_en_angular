@@ -1,1 +1,16 @@
-<p>home works!</p>
+<section *ngIf="perfil$ | async as perfil">
+  <h1>{{ perfil.nombre }}</h1>
+  <p *ngIf="perfil.resumen">{{ perfil.resumen }}</p>
+
+  <h3>Habilidades</h3>
+  <ul>
+    <li *ngFor="let h of perfil.habilidades">{{ h }}</li>
+  </ul>
+
+  <h3>Proyectos</h3>
+  <ul>
+    <li *ngFor="let p of perfil.proyectos">
+      <strong>{{ p.titulo }}</strong> — {{ p.descripcion }}
+    </li>
+  </ul>
+</section>

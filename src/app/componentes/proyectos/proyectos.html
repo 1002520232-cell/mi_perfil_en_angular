@@ -1,75 +1,30 @@
 <main class="contenido-proyectos">
     <div class="encabezado">
-        <h1>🚀 Mis Proyectos Destacados</h1>
-        <p class="descripcion">Una muestra de mis trabajos más relevantes en Ingeniería de Sistemas, desarrollo y diseño.</p>
-    </div>
+        <main class="contenido-proyectos">
+            <div class="encabezado">
+                <h1>Mis Proyectos Destacados</h1>
+                <p class="descripcion">Una muestra de mis trabajos más relevantes en Ingeniería de Sistemas, desarrollo y diseño.</p>
+            </div>
 
-    <div class="galeria-proyectos">
-        <!-- Proyecto 1 -->
-        <article class="tarjeta-proyecto" 
-                 [ngClass]="{'seleccionado': proyecto1Seleccionado}"
-                 (click)="proyecto1Seleccionado = !proyecto1Seleccionado">
-            <div class="proyecto-imagen">
-                <img class="crop" src="https://images.unsplash.com/photo-1527689368864-3a821dbccc34?auto=format&fit=crop&w=800&q=80" alt="Desarrollador trabajando en aplicación web (Python/Django)">
+            <div class="galeria-proyectos">
+                <article class="tarjeta-proyecto"
+                                 *ngFor="let p of proyectos$ | async; let i = index"
+                                 [ngClass]="{ 'seleccionado': selectedIndex === i, 'destacado': p.impacto }
+                                 "
+                                 (click)="toggle(i)">
+                    <div class="proyecto-imagen" [ngClass]="{ 'grande': p.impacto }">
+                        <img class="crop" [src]="p.imagen" [alt]="p.titulo" />
+                    </div>
+                    <div class="proyecto-contenido">
+                        <h3>{{ i + 1 }}. {{ p.titulo }}</h3>
+                        <p class="descripcion-proyecto">{{ p.descripcion }}</p>
+                        <div class="detalles">
+                            <ul>
+                                <li><strong>Tecnologías:</strong> {{ p.tecnologias.join(', ') }}</li>
+                                <li *ngIf="p.impacto"><strong>Impacto:</strong> {{ p.impacto }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
             </div>
-            <div class="proyecto-contenido">
-                <h3>1. Sistema de Gestión de Inventario</h3>
-                <p class="descripcion-proyecto">
-                    Plataforma web desarrollada con <strong>Python (Django)</strong> para automatizar la 
-                    trazabilidad y el <em>stock</em> de una pequeña empresa.
-                </p>
-                <div class="detalles">
-                    <ul>
-                        <li><strong>Tecnologías:</strong> Python, Django, PostgreSQL, HTML/CSS</li>
-                        <li><strong>Impacto:</strong> Reducción del 25% en errores de <em>stock</em></li>
-                    </ul>
-                </div>
-            </div>
-        </article>
-
-        <!-- Proyecto 2 -->
-        <article class="tarjeta-proyecto"
-                 [ngClass]="{'seleccionado': proyecto2Seleccionado}"
-                 (click)="proyecto2Seleccionado = !proyecto2Seleccionado">
-            <div class="proyecto-imagen">
-                <img class="crop" src="img/proyecto1.png" alt="Configuración de Red Segura">
-            </div>
-            <div class="proyecto-contenido">
-                <h3>2. Configuración de Red Segura (VPN)</h3>
-                <p class="descripcion-proyecto">
-                    Implementación y configuración de una red VPN usando <strong>OpenVPN</strong> en un 
-                    entorno Linux para asegurar la comunicación remota.
-                </p>
-                <div class="detalles">
-                    <ul>
-                        <li><strong>Tecnologías:</strong> Linux (Ubuntu), OpenVPN, Scripts Bash</li>
-                        <li><strong>Aprendizaje:</strong> Protocolos de encriptación y firewalls</li>
-                    </ul>
-                </div>
-            </div>
-        </article>
-
-        <!-- Proyecto 3 -->
-        <article class="tarjeta-proyecto destacado"
-                 [ngClass]="{'seleccionado': proyecto3Seleccionado}"
-                 [ngStyle]="{'border-width': proyecto3Seleccionado ? '4px' : '0px'}"
-                 (click)="proyecto3Seleccionado = !proyecto3Seleccionado">
-            <div class="proyecto-imagen grande">
-                <img class="crop" src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=800&q=80" alt="Prototipo de Aplicación Móvil">
-            </div>
-            <div class="proyecto-contenido">
-                <h3>3. Desarrollo de Aplicación Móvil (Prototipo UX)</h3>
-                <p class="descripcion-proyecto">
-                    Prototipo de una aplicación móvil para gestión de finanzas personales, diseñado 
-                    completamente en <strong>Figma</strong>, enfocado en la usabilidad (UX/UI).
-                </p>
-                <div class="detalles">
-                    <ul>
-                        <li><strong>Herramientas:</strong> Figma, Adobe XD (bocetos)</li>
-                        <li><strong>Fase:</strong> Diseño y <em>wireframing</em> (listo para desarrollo)</li>
-                    </ul>
-                </div>
-            </div>
-        </article>
-    </div>
-</main>
+        </main>

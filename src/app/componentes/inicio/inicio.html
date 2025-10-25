@@ -33,4 +33,21 @@
             </div>
         </div>
     </div>
+
+    <!-- SECCIÓN DE APLICACIONES -->
+    <section class="aplicaciones-section">
+        <h2>Herramientas que uso</h2>
+        
+        <div class="aplicaciones-grid">
+            <div *ngFor="let app of aplicaciones" class="app-card">
+                <h3>{{ app.titulo }}</h3>
+                <p>{{ app.descripcion }}</p>
+                <div class="plataformas">
+                    <span *ngFor="let plat of app.aplicaciones" class="badge">
+                        {{ plat }}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
 </main>

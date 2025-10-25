@@ -10,3 +10,6 @@
         <li><a routerLink="/contacto" routerLinkActive='active'>Contacto</a></li>
     </ul>
 </nav>
+<div *ngIf="perfil$ | async as perfil">
+  <h1>{{ perfil.nombre }}</h1>
+</div>
