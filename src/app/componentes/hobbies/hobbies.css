@@ -1,92 +1,176 @@
 /* Contenedor principal */
 .contenido-hobbies {
-    max-width: 1200px;
-    margin: 60px auto;
-    padding: 40px;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 30px;
 }
 
 /* Encabezado */
 .encabezado {
     text-align: center;
     margin-bottom: 50px;
-    padding-bottom: 30px;
-    border-bottom: 3px solid #f0f0f0;
 }
 
 .encabezado h1 {
-    font-size: 2.5rem;
-    color: #1a1a1a;
+    font-size: 2.8em;
+    color: #333;
     margin-bottom: 20px;
     font-weight: 700;
-    line-height: 1.3;
 }
 
 .intro {
-    font-size: 1.1rem;
-    color: #555;
-    line-height: 1.8;
+    font-size: 1.15em;
+    color: #666;
+    line-height: 1.9;
     max-width: 900px;
     margin: 0 auto;
 }
 
-/* Título de sección */
 .titulo-seccion {
-    font-size: 2rem;
-    color: #222;
     text-align: center;
-    margin-bottom: 40px;
+    font-size: 2.2em;
+    color: #333;
+    margin: 50px 0 40px 0;
+    font-weight: 700;
 }
 
 /* Sección de hobby */
 .seccion-hobby {
-    margin-bottom: 60px;
-    padding-bottom: 40px;
-    border-bottom: 2px solid #f0f0f0;
-}
-
-.seccion-hobby:last-child {
-    border-bottom: none;
+    margin-bottom: 70px;
 }
 
 .titulo-hobby {
-    font-size: 1.8rem;
-    color: #2c3e50;
-    margin-bottom: 30px;
-    padding-left: 15px;
-    border-left: 5px solid #3498db;
+    font-size: 2em;
+    color: #667eea;
+    margin-bottom: 35px;
+    padding-bottom: 12px;
+    border-bottom: 4px solid #667eea;
+    font-weight: 700;
 }
 
-/* Galería de hobbies */
-.galeria-hobbies {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 20px;
+/* ============================================
+   TARJETAS DE VIDEO HORIZONTALES (CENTRADAS)
+   ============================================ */
+
+.tarjeta-video-horizontal {
+    display: flex;
+    gap: 45px;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    padding: 40px 50px;
+    margin-bottom: 35px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Tarjeta de hobby */
-.tarjeta-hobby {
-    background: #fafafa;
-    border-radius: 10px;
+.tarjeta-video-horizontal:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+/* Video estilo TikTok (CENTRADO) */
+.video-tiktok {
+    flex-shrink: 0;
+    width: 340px;
+    height: 600px;
+    background: #000;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+}
+
+.video-tiktok video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Embed de TikTok */
+.tiktok-embed {
+    max-width: 340px !important;
+    min-width: 340px !important;
+}
+
+/* Descripción del video (MÁS CONTENIDO) */
+.descripcion-video {
+    flex: 1;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 18px;
+}
+
+.descripcion-video h4 {
     margin: 0;
+    color: #2d3748;
+    font-size: 1.65em;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.5px;
+}
+
+.descripcion-video p {
+    margin: 0;
+    color: #4a5568;
+    line-height: 1.8;
+    font-size: 1em;
+    letter-spacing: 0.1px;
+    text-align: justify;
+}
+
+/* ============================================
+   CONTENIDO MIXTO (Anime y otras secciones)
+   ============================================ */
+
+.contenido-mixto {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+    align-items: start;
+}
+
+.tarjeta-hobby {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .tarjeta-hobby:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
 }
 
+/* Imagen container para anime */
+.imagen-container-anime {
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.imagen-container-anime img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Imagen container general */
 .imagen-container {
     width: 100%;
-    height: 200px;
+    height: 340px;
     overflow: hidden;
-    background: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f7fafc;
 }
 
 .imagen-container img {
@@ -95,83 +179,277 @@
     object-fit: cover;
 }
 
-.tarjeta-hobby figcaption {
-    padding: 20px;
+figcaption {
+    padding: 30px;
 }
 
-.tarjeta-hobby h4 {
-    font-size: 1.2rem;
-    color: #2c3e50;
-    margin-bottom: 12px;
+figcaption h4 {
+    margin: 0 0 15px 0;
+    color: #2d3748;
+    font-size: 1.5em;
+    font-weight: 700;
+    line-height: 1.3;
 }
 
-.tarjeta-hobby p {
-    font-size: 0.95rem;
-    color: #666;
-    line-height: 1.6;
+figcaption p {
+    margin: 0;
+    color: #4a5568;
+    line-height: 1.8;
+    font-size: 1.1em;
 }
 
-/* Contenido mixto (imagen + lista) */
-.contenido-mixto {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    align-items: start;
-}
+/* ============================================
+   LISTA CONTAINER Y GRID DE ANIMES
+   ============================================ */
 
-.tarjeta-hobby.destacada {
-    height: fit-content;
-}
-
-/* Lista container */
 .lista-container {
-    background: #f9f9f9;
-    padding: 25px;
-    border-radius: 10px;
-    border-left: 4px solid #3498db;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    padding: 35px;
 }
 
 .lista-container h4 {
-    font-size: 1.3rem;
-    color: #2c3e50;
-    margin-bottom: 15px;
+    margin: 0 0 30px 0;
+    color: #2d3748;
+    font-size: 1.5em;
+    font-weight: 700;
 }
 
 .lista-container ul,
 .lista-container ol {
+    margin: 0;
     padding-left: 25px;
 }
 
 .lista-container li {
-    margin-bottom: 12px;
-    color: #555;
-    line-height: 1.6;
-    font-size: 1rem;
+    margin: 12px 0;
+    color: #4a5568;
+    line-height: 1.8;
+    font-size: 1.05em;
 }
 
-.lista-container ul li {
-    list-style-type: square;
+/* Grid de tarjetas de anime */
+.grid-animes {
+    display: grid;
+    gap: 18px;
 }
 
-.lista-container ol li {
-    list-style-type: decimal;
+/* Tarjeta individual de anime */
+.card-anime {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 20px 24px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 14px;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    position: relative;
+    overflow: hidden;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+.card-anime::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+    transition: left 0.6s;
+}
+
+.card-anime:hover::before {
+    left: 100%;
+}
+
+.card-anime:hover {
+    transform: translateX(10px) scale(1.02);
+    box-shadow: 0 8px 24px rgba(102, 126, 234, 0.5);
+}
+
+/* Icono del anime */
+.anime-icon {
+    font-size: 2.8em;
+    flex-shrink: 0;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+}
+
+/* Información del anime */
+.anime-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.anime-info strong {
+    font-size: 1.3em;
+    font-weight: 700;
+    display: block;
+    letter-spacing: -0.3px;
+}
+
+.anime-info span {
+    font-size: 1em;
+    opacity: 0.95;
+    line-height: 1.5;
+    letter-spacing: 0.2px;
+}
+
+/* Flecha del anime */
+.anime-arrow {
+    font-size: 2em;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+    font-weight: bold;
+}
+
+.card-anime:hover .anime-arrow {
+    transform: translateX(8px);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 1200px) {
     .contenido-hobbies {
-        padding: 30px 20px;
+        max-width: 1100px;
+        padding: 25px;
     }
-
-    .encabezado h1 {
-        font-size: 2rem;
+    
+    .tarjeta-video-horizontal {
+        padding: 35px 40px;
+        gap: 35px;
     }
-
-    .galeria-hobbies {
-        grid-template-columns: 1fr;
+    
+    .video-tiktok {
+        width: 300px;
+        height: 530px;
     }
+    
+    .descripcion-video {
+        max-width: 450px;
+    }
+}
 
+@media (max-width: 992px) {
+    /* Videos pasan a columna en tablets */
+    .tarjeta-video-horizontal {
+        flex-direction: column;
+        align-items: center;
+        padding: 35px 30px;
+    }
+    
+    .video-tiktok {
+        width: 100%;
+        max-width: 380px;
+        height: auto;
+        aspect-ratio: 9 / 16;
+    }
+    
+    .descripcion-video {
+        text-align: center;
+        max-width: 100%;
+    }
+    
+    .descripcion-video p {
+        text-align: center;
+    }
+    
     .contenido-mixto {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .contenido-hobbies {
+        padding: 20px;
+    }
+    
+    .encabezado h1 {
+        font-size: 2em;
+    }
+    
+    .intro {
+        font-size: 1.05em;
+    }
+    
+    .titulo-hobby {
+        font-size: 1.6em;
+    }
+    
+    .tarjeta-video-horizontal {
+        padding: 25px 20px;
+    }
+    
+    .descripcion-video h4 {
+        font-size: 1.4em;
+    }
+    
+    .descripcion-video p {
+        font-size: 0.95em;
+    }
+    
+    .card-anime {
+        padding: 18px 20px;
+    }
+    
+    .anime-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 2.3em;
+    }
+    
+    .anime-info strong {
+        font-size: 1.15em;
+    }
+    
+    .anime-info span {
+        font-size: 0.95em;
+    }
+}
+
+@media (max-width: 480px) {
+    .contenido-hobbies {
+        padding: 15px;
+    }
+    
+    .tarjeta-video-horizontal {
+        padding: 20px 15px;
+    }
+    
+    .video-tiktok {
+        width: 100%;
+    }
+    
+    .descripcion-video h4 {
+        font-size: 1.25em;
+    }
+    
+    .descripcion-video p {
+        font-size: 0.9em;
+    }
+    
+    .card-anime {
+        flex-direction: row;
+        gap: 15px;
+    }
+    
+    .anime-icon {
+        width: 55px;
+        height: 55px;
+        font-size: 2em;
     }
 }
