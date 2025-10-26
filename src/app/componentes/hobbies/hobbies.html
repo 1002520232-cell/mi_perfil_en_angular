@@ -2,18 +2,40 @@
     <div class="encabezado">
         <h1>Mis Hobbies: Estrategia, Ritmo y Desarrollo Constante 🎮</h1>
         <p class="intro">
-            Disfruto de la <strong>cultura geek</strong> y el <strong>entretenimiento digital</strong> 
-            porque son fuentes inagotables de aprendizaje y estrategia. Mis aficiones no son solo 
-            pasatiempos; me ayudan a desarrollar habilidades transferibles como el 
+            Disfruto de la <strong>cultura geek</strong> y el <strong>entretenimiento digital</strong>
+            porque son fuentes inagotables de aprendizaje y estrategia. Mis aficiones no son solo
+            pasatiempos; me ayudan a desarrollar habilidades transferibles como el
             <strong>análisis de sistemas</strong> y el <strong>trabajo bajo presión</strong>.
+        </p>
+
+        <!-- Input para búsqueda con two-way binding -->
+        <div class="busqueda-container">
+            <input
+                type="text"
+                [(ngModel)]="filtroBusqueda"
+                placeholder="Buscar hobbies..."
+                class="input-busqueda"
+                (input)="getHobbiesFiltrados()"
+            />
+            <button (click)="resetearFiltros()" class="btn-reset">Resetear Filtros</button>
+        </div>
+
+        <!-- Contador de hobbies visibles con property binding -->
+        <p class="contador" [class.activo]="getContadorHobbiesVisibles() > 0">
+            Hobbies encontrados: {{ getContadorHobbiesVisibles() }}
         </p>
     </div>
 
     <h2 class="titulo-seccion">Mis Pasiones Detalladas</h2>
 
     <!-- Videojuegos y eSports -->
-    <section class="seccion-hobby">
-        <h3 class="titulo-hobby">1. Videojuegos y eSports 🎮</h3>
+    <section class="seccion-hobby" *ngIf="isVideojuegosVisible()">
+        <h3 class="titulo-hobby">
+            1. Videojuegos y eSports 🎮
+            <button (click)="toggleSeccion('videojuegos')" class="btn-toggle" [class.oculto]="!mostrarVideojuegos">
+                {{ mostrarVideojuegos ? 'Ocultar' : 'Mostrar' }}
+            </button>
+        </h3>
         
       <!-- Video 1 -->
 <div class="tarjeta-video-horizontal">
@@ -80,8 +102,13 @@
 
 
     <!-- Música y Ritmo -->
-    <section class="seccion-hobby">
-        <h3 class="titulo-hobby">2. Música y Ritmo </h3>
+    <section class="seccion-hobby" *ngIf="isMusicaVisible()">
+        <h3 class="titulo-hobby">
+            2. Música y Ritmo
+            <button (click)="toggleSeccion('musica')" class="btn-toggle" [class.oculto]="!mostrarMusica">
+                {{ mostrarMusica ? 'Ocultar' : 'Mostrar' }}
+            </button>
+        </h3>
         
         <div class="contenido-mixto">
             <figure class="tarjeta-hobby destacada">
@@ -106,8 +133,13 @@
     </section>
 
    <!-- Anime y Cultura Geek -->
-<section class="seccion-hobby">
-    <h3 class="titulo-hobby">3. Anime y Cultura </h3>
+<section class="seccion-hobby" *ngIf="isAnimeVisible()">
+    <h3 class="titulo-hobby">
+        3. Anime y Cultura
+        <button (click)="toggleSeccion('anime')" class="btn-toggle" [class.oculto]="!mostrarAnime">
+            {{ mostrarAnime ? 'Ocultar' : 'Mostrar' }}
+        </button>
+    </h3>
     
     <div class="contenido-mixto">
         <figure class="tarjeta-hobby destacada">
