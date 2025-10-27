@@ -1,30 +1,39 @@
 <main class="contenido-proyectos">
     <div class="encabezado">
-        <main class="contenido-proyectos">
-            <div class="encabezado">
-                <h1>Mis Proyectos Destacados</h1>
-                <p class="descripcion">Una muestra de mis trabajos más relevantes en Ingeniería de Sistemas, desarrollo y diseño.</p>
-            </div>
+        <h1>Mis Proyectos Destacados</h1>
+        <p class="descripcion">Una muestra de mis trabajos más relevantes en Ingeniería de Sistemas, desarrollo y diseño.</p>
+    </div>
 
-            <div class="galeria-proyectos">
-                <article class="tarjeta-proyecto"
-                                 *ngFor="let p of proyectos$ | async; let i = index"
-                                 [ngClass]="{ 'seleccionado': selectedIndex === i, 'destacado': p.impacto }
-                                 "
-                                 (click)="toggle(i)">
-                    <div class="proyecto-imagen" [ngClass]="{ 'grande': p.impacto }">
-                        <img class="crop" [src]="p.imagen" [alt]="p.titulo" />
-                    </div>
-                    <div class="proyecto-contenido">
-                        <h3>{{ i + 1 }}. {{ p.titulo }}</h3>
-                        <p class="descripcion-proyecto">{{ p.descripcion }}</p>
-                        <div class="detalles">
-                            <ul>
-                                <li><strong>Tecnologías:</strong> {{ p.tecnologias.join(', ') }}</li>
-                                <li *ngIf="p.impacto"><strong>Impacto:</strong> {{ p.impacto }}</li>
-                            </ul>
-                        </div>
-                    </div>
-                </article>
+    <!-- Indicador de carga -->
+    <div *ngIf="loading" class="loading-container">
+        <div class="spinner"></div>
+        <p>Cargando proyectos...</p>
+    </div>
+
+    <!-- Mensaje de error -->
+    <div *ngIf="error" class="error-container">
+        <p class="error-message">{{ error }}</p>
+        <button (click)="retryLoad()" class="retry-button">Reintentar</button>
+    </div>
+
+    <!-- Galería de proyectos -->
+    <div *ngIf="!loading && !error" class="galeria-proyectos">
+        <article class="tarjeta-proyecto"
+                         *ngFor="let p of proyectos; let i = index"
+                         [ngClass]="{ 'seleccionado': selectedIndex === i, 'destacado': p.impacto }"
+                         (click)="toggle(i)">
+            <div class="proyecto-imagen" [ngClass]="{ 'grande': p.impacto }">
+                <img class="crop" [src]="p.imagen" [alt]="p.titulo" />
             </div>
-        </main>
+            <div class="proyecto-contenido">
+                <h3>{{ i + 1 }}. {{ p.titulo }}</h3>
+                <p class="descripcion-proyecto">{{ p.descripcion }}</p>
+                <div class="detalles">
+                    <ul>
+                        <li><strong>Tecnologías:</strong> {{ p.tecnologias.join(', ') }}</li>
+                        <li *ngIf="p.impacto"><strong>Impacto:</strong> {{ p.impacto }}</li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+    </div>

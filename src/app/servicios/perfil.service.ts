@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
 import { Perfil, Project } from '../modelos/perfil';
 
 @Injectable({
@@ -30,14 +29,16 @@ export class PerfilService {
         titulo: 'Configuración de Red Segura (VPN)',
         descripcion: 'Implementación y configuración de una red VPN usando OpenVPN en un entorno Linux.',
         tecnologias: ['Linux', 'OpenVPN', 'Bash'],
-        imagen: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80'
+        imagen: 'https://s2.studylib.es/store/data/005748001_1-dfae73ec50bbbe721828a6abab82cad3.png'
       },
       {
         titulo: 'Prototipo de Aplicación Móvil (UX)',
         descripcion: 'Prototipo de gestión de finanzas personales, diseñado en Figma y listo para desarrollo.',
         tecnologias: ['Figma', 'Prototipado', 'UX'],
         imagen: 'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=800&q=80'
-      }
+      },
+      
+     
     ],
     contacto: {
       email: 'tu-email@ejemplo.com',
@@ -47,15 +48,40 @@ export class PerfilService {
 
   constructor() {}
 
-  getPerfil(): Observable<Perfil> {
-    return of(this.data);
+  getPerfil(): Promise<Perfil> {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        // Simular un error aleatorio para demostrar manejo de errores
+        if (Math.random() < 0.1) { // 10% de probabilidad de error
+          reject(new Error('Error al cargar el perfil'));
+        } else {
+          resolve(this.data);
+        }
+      }, 1500); // Simular 1.5 segundos de carga
+    });
   }
 
-  getHabilidades(): Observable<string[]> {
-    return of(this.data.habilidades);
+  getHabilidades(): Promise<string[]> {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (Math.random() < 0.1) {
+          reject(new Error('Error al cargar las habilidades'));
+        } else {
+          resolve(this.data.habilidades);
+        }
+      }, 1000); // Simular 1 segundo de carga
+    });
   }
 
-  getProyectos(): Observable<Project[]> {
-    return of(this.data.proyectos);
+  getProyectos(): Promise<Project[]> {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (Math.random() < 0.1) {
+          reject(new Error('Error al cargar los proyectos'));
+        } else {
+          resolve(this.data.proyectos);
+        }
+      }, 2000); // Simular 2 segundos de carga
+    });
   }
 }

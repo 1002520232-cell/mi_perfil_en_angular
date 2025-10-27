@@ -1,4 +1,17 @@
-<section *ngIf="perfil$ | async as perfil">
+<!-- Indicador de carga -->
+<div *ngIf="loading" class="loading-container">
+  <div class="spinner"></div>
+  <p>Cargando perfil...</p>
+</div>
+
+<!-- Mensaje de error -->
+<div *ngIf="error" class="error-container">
+  <p class="error-message">{{ error }}</p>
+  <button (click)="loadPerfil()" class="retry-button">Reintentar</button>
+</div>
+
+<!-- Contenido del perfil -->
+<section *ngIf="!loading && !error && perfil">
   <h1>{{ perfil.nombre }}</h1>
   <p *ngIf="perfil.resumen">{{ perfil.resumen }}</p>
 

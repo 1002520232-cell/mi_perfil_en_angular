@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { Observable } from 'rxjs';
 import { PerfilService } from '../../servicios/perfil.service';
 import { Perfil } from '../../modelos/perfil';
 
@@ -13,13 +12,23 @@ import { Perfil } from '../../modelos/perfil';
   styleUrls: ['./cabecera.css']
 })
 export class CabeceraComponent implements OnInit {
-  perfil$: Observable<Perfil>;
+  perfil: Perfil | null = null;
+  loading: boolean = true;
 
-  constructor(private perfilService: PerfilService) {
-    this.perfil$ = this.perfilService.getPerfil();
-  }
+  constructor(private perfilService: PerfilService) {}
 
   ngOnInit() {
-    // Inicialización si es necesaria
+    this.loadPerfil();
+  }
+
+  async loadPerfil(): Promise<void> {
+    this.loading = true;
+    try {
+      this.perfil = await this.perfilService.getPerfil();
+    } catch (error) {
+      console.error('Error cargando perfil:', error);
+    } finally {
+      this.loading = false;
+    }
   }
 }

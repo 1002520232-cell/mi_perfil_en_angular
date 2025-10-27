@@ -1,7 +1,6 @@
 
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Observable } from 'rxjs';
 import { PerfilService } from '../../servicios/perfil.service';
 import { Project } from '../../modelos/perfil';
 
@@ -12,15 +11,35 @@ import { Project } from '../../modelos/perfil';
   templateUrl: './proyectos.html',
   styleUrls: ['./proyectos.css']
 })
-export class Proyectos {
-  proyectos$: Observable<Project[]>;
+export class Proyectos implements OnInit {
+  proyectos: Project[] = [];
+  loading: boolean = true;
+  error: string | null = null;
   selectedIndex: number | null = null;
 
-  constructor(private perfilService: PerfilService) {
-    this.proyectos$ = this.perfilService.getProyectos();
+  constructor(private perfilService: PerfilService) {}
+
+  ngOnInit(): void {
+    this.loadProyectos();
+  }
+
+  async loadProyectos(): Promise<void> {
+    this.loading = true;
+    this.error = null;
+    try {
+      this.proyectos = await this.perfilService.getProyectos();
+    } catch (err) {
+      this.error = err instanceof Error ? err.message : 'Error desconocido al cargar proyectos';
+    } finally {
+      this.loading = false;
+    }
   }
 
   toggle(index: number) {
     this.selectedIndex = this.selectedIndex === index ? null : index;
+  }
+
+  retryLoad() {
+    this.loadProyectos();
   }
 }

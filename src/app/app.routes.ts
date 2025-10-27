@@ -7,6 +7,7 @@ import { Hobbies } from './componentes/hobbies/hobbies';
 import { Proyectos } from './componentes/proyectos/proyectos';
 import { Galeria } from './componentes/galeria/galeria';
 
+
 export const routes: Routes = [
     {path: '', component:Inicio, title:'Inicio'},
     {path: 'sobre-mi', component:SobreMi, title:'Sobre mi'},
@@ -15,5 +16,4 @@ export const routes: Routes = [
     {path: 'proyectos', component:Proyectos, title:'Proyectos'},
     {path: 'galeria', component:Galeria, title:'Galería'},
     {path: 'contacto', component:Contacto, title:'Contacto'},
-    {path: '', component:Inicio, title:''},
 ];

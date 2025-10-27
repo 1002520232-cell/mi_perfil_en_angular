@@ -1,5 +1,17 @@
+<!-- Indicador de carga -->
+<div *ngIf="loading" class="loading-container">
+  <div class="spinner"></div>
+  <p>Cargando perfil...</p>
+</div>
+
+<!-- Mensaje de error -->
+<div *ngIf="error" class="error-container">
+  <p class="error-message">{{ error }}</p>
+  <button (click)="loadPerfil()" class="retry-button">Reintentar</button>
+</div>
+
 <!-- Sección principal -->
-<main class="perfil-principal">
+<main *ngIf="!loading && !error && perfil" class="perfil-principal">
     <div class="perfil-container">
         <!-- FOTO DE PERFIL -->
         <div class="perfil-img-container">
@@ -8,27 +20,24 @@
 
         <!-- INFORMACIÓN A LA DERECHA -->
         <div class="perfil-info">
-            <h1>Juan David</h1>
-            <p class="titulo">consultas al dm</p>
-            
+            <h1>{{ perfil.nombre }}</h1>
+            <p class="titulo">Ingeniero de Sistemas</p>
+
             <div class="info-personal">
                 <p><strong>Estado civil:</strong> Soltero</p>
                 <p><strong>Ciudad:</strong> Andahuaylas, Perú</p>
                 <p><strong>Edad:</strong> 20 años</p>
-                <p><strong>Email:</strong> juan.david&#64;example.com</p>
+                <p><strong>Email:</strong> {{ perfil.contacto?.email }}</p>
             </div>
 
             <div class="descripcion-breve">
-                <p>Apasionado por la tecnología y el desarrollo web. Me gusta crear experiencias digitales únicas y funcionales.</p>
+                <p>{{ perfil.resumen }}</p>
             </div>
 
             <div class="intereses">
-                <h3>Intereses</h3>
+                <h3>Habilidades</h3>
                 <ul>
-                    <li>Jugar videojuegos</li>
-                    <li>Ver anime</li>
-                    <li>Programación</li>
-                    <li>Diseño UI/UX</li>
+                    <li *ngFor="let h of perfil.habilidades">{{ h }}</li>
                 </ul>
             </div>
         </div>

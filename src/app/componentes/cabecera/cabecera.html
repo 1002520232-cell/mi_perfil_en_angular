@@ -10,6 +10,9 @@
         <li><a routerLink="/contacto" routerLinkActive='active'>Contacto</a></li>
     </ul>
 </nav>
-<div *ngIf="perfil$ | async as perfil">
+<div *ngIf="loading" class="loading-header">
+  Cargando perfil...
+</div>
+<div *ngIf="!loading && perfil">
   <h1>{{ perfil.nombre }}</h1>
 </div>
