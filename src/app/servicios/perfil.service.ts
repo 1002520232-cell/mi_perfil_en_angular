@@ -6,8 +6,8 @@ import { Perfil, Project } from '../modelos/perfil';
 })
 export class PerfilService {
   private data: Perfil = {
-    nombre: 'Juan David Aguila Silvera',
-    resumen: 'Ingeniero de Sistemas con experiencia en desarrollo web, redes y diseño de interfaces.',
+    nombre: 'Juan David ',
+    resumen: 'estudioso en desarrollo web, redes y diseño de interfaces.',
     habilidades: [
       'Angular',
       'TypeScript',
