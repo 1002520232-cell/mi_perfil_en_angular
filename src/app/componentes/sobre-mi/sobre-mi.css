@@ -176,3 +176,44 @@
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
 }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contenido {
+        margin: 30px auto;
+        padding: 20px;
+    }
+
+    .intro h1 {
+        font-size: 2rem;
+    }
+
+    .descripcion-principal {
+        font-size: 1rem;
+    }
+
+    .seccion-detalles h2 {
+        font-size: 1.4rem;
+    }
+
+    .cualidades h3,
+    .lugares-visitar h3,
+    .biografia h3 {
+        font-size: 1.2rem;
+    }
+
+    .tarjetas-lugares {
+        grid-template-columns: 1fr;
+    }
+
+    .botones-principales {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn-principal {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+}

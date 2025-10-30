@@ -1,15 +1,21 @@
 <nav class="navbar">
     <div class="logo">MiPerfil</div>
-    <ul class="nav-links">
-        <li><a routerLink="" routerLinkActive='active' [routerLinkActiveOptions]="{exact:true}">Inicio</a></li>
-        <li><a routerLink="/sobre-mi" routerLinkActive='active'>Sobre mí</a></li>
-        <li><a routerLink="/estudios" routerLinkActive='active'>Estudios</a></li>
-        <li><a routerLink="/hobbies" routerLinkActive='active'>Hobbies</a></li>
-        <li><a routerLink="/proyectos" routerLinkActive='active'>Proyectos</a></li>
-        <li><a routerLink="/galeria" routerLinkActive='active'>Galería</a></li>
-        <li><a routerLink="/contacto" routerLinkActive='active'>Contacto</a></li>
+    <div class="menu-toggle" (click)="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <ul class="nav-links" [class.open]="menuOpen">
+        <li><a routerLink="" routerLinkActive='active' [routerLinkActiveOptions]="{exact:true}" (click)="closeMenu()">Inicio</a></li>
+        <li><a routerLink="/sobre-mi" routerLinkActive='active' (click)="closeMenu()">Sobre mí</a></li>
+        <li><a routerLink="/estudios" routerLinkActive='active' (click)="closeMenu()">Estudios</a></li>
+        <li><a routerLink="/hobbies" routerLinkActive='active' (click)="closeMenu()">Hobbies</a></li>
+        <li><a routerLink="/proyectos" routerLinkActive='active' (click)="closeMenu()">Proyectos</a></li>
+        <li><a routerLink="/galeria" routerLinkActive='active' (click)="closeMenu()">Galería</a></li>
+        <li><a routerLink="/contacto" routerLinkActive='active' (click)="closeMenu()">Contacto</a></li>
     </ul>
 </nav>
+<div class="menu-overlay" [class.open]="menuOpen" (click)="closeMenu()"></div>
 <div *ngIf="loading" class="loading-header">
   Cargando perfil...
 </div>

@@ -14,6 +14,7 @@ import { Perfil } from '../../modelos/perfil';
 export class CabeceraComponent implements OnInit {
   perfil: Perfil | null = null;
   loading: boolean = true;
+  menuOpen: boolean = false;
 
   constructor(private perfilService: PerfilService) {}
 
@@ -30,5 +31,13 @@ export class CabeceraComponent implements OnInit {
     } finally {
       this.loading = false;
     }
+  }
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
+
+  closeMenu() {
+    this.menuOpen = false;
   }
 }

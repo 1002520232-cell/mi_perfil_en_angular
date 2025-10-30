@@ -113,3 +113,33 @@
 .tabla-herramientas tbody tr:nth-child(even):hover {
     background-color: #f0f0f0;
 }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contenido-estudios {
+        margin: 30px auto;
+        padding: 20px;
+    }
+
+    .encabezado h1 {
+        font-size: 2rem;
+    }
+
+    .encabezado .descripcion {
+        font-size: 1rem;
+    }
+
+    .seccion-tabla h2 {
+        font-size: 1.4rem;
+    }
+
+    .tabla-herramientas th,
+    .tabla-herramientas td {
+        padding: 12px 10px;
+        font-size: 0.9rem;
+    }
+
+    .tabla-herramientas th {
+        font-size: 0.95rem;
+    }
+}

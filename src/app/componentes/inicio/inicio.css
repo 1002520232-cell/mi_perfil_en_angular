@@ -108,24 +108,53 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+    .perfil-principal {
+        padding: 30px 10px;
+        min-height: auto;
+    }
+
     .perfil-container {
         flex-direction: column;
         text-align: center;
-        padding: 30px 20px;
+        padding: 20px 15px;
+        gap: 20px;
+        max-width: 100%;
     }
 
     .perfil-img-container {
-        margin-bottom: 20px;
+        margin-bottom: 0;
+    }
+
+    .perfil-img {
+        width: 150px;
+        height: 150px;
     }
 
     .perfil-info h1 {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
+    }
+
+    .perfil-info .titulo {
+        font-size: 1rem;
+    }
+
+    .info-personal p {
+        font-size: 0.9rem;
+    }
+
+    .descripcion-breve {
+        padding: 10px;
     }
 
     .intereses {
         text-align: left;
     }
+
+    .intereses h3 {
+        font-size: 1.1rem;
+    }
 }
+
 /* SECCIÓN DE APLICACIONES */
 .aplicaciones-section {
     margin-top: 40px;
@@ -185,4 +214,39 @@
     border-radius: 20px;
     font-size: 12px;
     font-weight: 500;
+}
+
+/* Responsive para aplicaciones */
+@media (max-width: 768px) {
+    .aplicaciones-section {
+        margin-top: 20px;
+        padding: 20px 10px;
+    }
+
+    .aplicaciones-section h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .aplicaciones-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .app-card {
+        padding: 15px;
+    }
+
+    .app-card h3 {
+        font-size: 18px;
+    }
+
+    .app-card p {
+        font-size: 0.9rem;
+    }
+
+    .badge {
+        font-size: 11px;
+        padding: 4px 10px;
+    }
 }

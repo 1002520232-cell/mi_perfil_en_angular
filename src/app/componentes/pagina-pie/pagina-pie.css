@@ -1,4 +1,3 @@
-
 .footer {
     background-color: #f5f5f5;
     text-align: center;
@@ -24,8 +23,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 120px;  /* ancho mínimo */
-    max-width: 160px;  /* ancho máximo */
+    min-width: 120px;
+    max-width: 160px;
     padding: 10px 0;
     color: #fff;
     font-weight: bold;
@@ -36,7 +35,6 @@
     text-align: center;
     white-space: nowrap;
 }
-
 
 /* Colores oficiales de cada red */
 .btn-footer.facebook {
@@ -55,4 +53,26 @@
 .btn-footer:hover {
     transform: translateY(-3px);
     filter: brightness(0.85);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer {
+        padding: 20px 15px;
+    }
+
+    .footer p {
+        font-size: 14px;
+    }
+
+    .footer-redes {
+        gap: 10px;
+    }
+
+    .btn-footer {
+        min-width: 100px;
+        max-width: 140px;
+        font-size: 14px;
+        padding: 8px 0;
+    }
 }

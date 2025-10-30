@@ -165,6 +165,7 @@
 @media (max-width: 968px) {
     .contacto-container {
         grid-template-columns: 1fr;
+        gap: 30px;
     }
 
     .info-contacto {
@@ -178,14 +179,57 @@
 
 @media (max-width: 768px) {
     .contenido-contacto {
-        padding: 30px 20px;
+        margin: 30px auto;
+        padding: 20px 15px;
+    }
+
+    .encabezado-contacto {
+        margin-bottom: 30px;
+        padding-bottom: 20px;
     }
 
     .encabezado-contacto h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+    }
+
+    .intro {
+        font-size: 1rem;
+    }
+
+    .contacto-container {
+        gap: 20px;
+    }
+
+    .info-contacto h2,
+    .formulario-contacto h2 {
+        font-size: 1.4rem;
+        margin-bottom: 20px;
+    }
+
+    .item-contacto {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    .icono-contacto {
+        align-self: center;
     }
 
     .formulario-contacto {
-        padding: 25px 20px;
+        padding: 20px 15px;
+    }
+
+    .form-grupo input,
+    .form-grupo textarea {
+        font-size: 0.95rem;
+        padding: 10px 12px;
+    }
+
+    .btn-enviar {
+        font-size: 1rem;
+        padding: 12px;
     }
 }

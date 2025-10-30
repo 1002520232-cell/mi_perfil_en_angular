@@ -1,0 +1,23 @@
+/* Estilos para el item de habilidad */
+li {
+    padding: 8px 0;
+    color: #555;
+    cursor: pointer;
+    transition: color 0.3s, background-color 0.3s;
+    border-radius: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+li:hover {
+    color: #333;
+    background-color: #f0f0f0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    li {
+        padding: 12px 15px;
+        font-size: 1rem;
+    }
+}
