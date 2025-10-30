@@ -37,7 +37,7 @@
             <div class="intereses">
                 <h3>Habilidades</h3>
                 <ul>
-                    <li *ngFor="let h of perfil.habilidades">{{ h }}</li>
+                    <app-skill-item *ngFor="let h of perfil.habilidades" [skill]="h" (skillClicked)="onSkillClicked($event)"></app-skill-item>
                 </ul>
             </div>
         </div>

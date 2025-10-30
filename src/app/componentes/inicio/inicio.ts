@@ -4,11 +4,12 @@ import { Aplicacion } from '../../modelos/aplicacion';
 import { Aplicaciones } from '../../servicios/aplicaciones';
 import { PerfilService } from '../../servicios/perfil.service';
 import { Perfil } from '../../modelos/perfil';
+import { SkillItem } from '../skill-item/skill-item';
 
 @Component({
   selector: 'app-inicio',
   standalone: true,
-  imports: [CommonModule], // ✅ MUY IMPORTANTE
+  imports: [CommonModule, SkillItem], // ✅ MUY IMPORTANTE
   templateUrl: './inicio.html',
   styleUrl: './inicio.css',
 })
@@ -37,5 +38,9 @@ export class Inicio implements OnInit {
     } finally {
       this.loading = false;
     }
+  }
+
+  onSkillClicked(skill: string) {
+    console.log('Skill clicked:', skill);
   }
 }
